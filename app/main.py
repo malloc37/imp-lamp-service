@@ -5,5 +5,5 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
-    logger.info("Starting Workflow Microservice...")
+    logger.info("Starting Lamp Microservice...")
     process_gaze_event()
