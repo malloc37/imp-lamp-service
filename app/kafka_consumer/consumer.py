@@ -24,14 +24,14 @@ def consume_messages():
         event = message.value
         logger.info(f"Received message: {event}")
 
-        if event.get('gazed_object') == 'Lamp' and event.get('gaze_activity') == 'inspect':
+        if event.get('gazed_object') == 'OfficeLight' and event.get('gaze_activity') == 'inspect':
             event_history.append(event)
 
             if len(event_history) > 3:
                 event_history.pop(0)
 
             if len(event_history) == 3 and all(
-                e.get('gazed_object') == 'Lamp' and e.get('gaze_activity') == 'inspect' for e in event_history
+                e.get('gazed_object') == 'OfficeLight' and e.get('gaze_activity') == 'inspect' for e in event_history
             ):
                 logger.info("Pattern detected: Triggering action to turn on the lamp!")
                 event_history.clear()
